@@ -233,7 +233,7 @@ export default function Sidebar() {
         </div>
         
         {newItemType && (
-          <div className="m-2 p-3 border border-gray-600 dark:bg-gray-800 rounded-md shadow-sm">
+          <div className="m-2 p-3 border border-gray-300 dark:!border-gray-800 dark:!bg-gray-800 rounded-md shadow-sm">
             <div className="flex items-center mb-2">
               <span className="mr-2">New {newItemType}:</span>
               {newItemParentId && (
@@ -248,12 +248,12 @@ export default function Sidebar() {
                 value={newItemName}
                 onChange={(e) => setNewItemName(e.target.value)}
                 placeholder={`Enter ${newItemType} name`}
-                className="flex-1 w-8 p-1 border bg-transparent border-gray-600 dark:border-gray-600 rounded-l dark:bg-gray-700"
+                className="flex-1 w-8 p-1 text-sm border bg-transparent border-gray-300 dark:border-gray-600 rounded-l dark:bg-gray-700"
                 onKeyDown={(e) => e.key === 'Enter' && handleCreateItem()}
               />
               <button
                 onClick={handleCreateItem}
-                className="px-2 py-1 bg-blue-500 text-white rounded-r hover:bg-blue-600 transition-colors"
+                className="px-2 py-1 text-sm bg-blue-500 text-white rounded-r hover:bg-blue-600 transition-colors"
               >
                 Create
               </button>
