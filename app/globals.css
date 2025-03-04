@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+  --primary-color: 59, 130, 246;
+  --border-color: 229, 231, 235;
+  --sidebar-bg: 248, 250, 252;
+}
+
+[data-theme="dark"] {
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 30, 41, 59;
+  --border-color: 55, 65, 81;
+  --sidebar-bg: 17, 24, 39;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  height: 100vh;
+  overflow: hidden;
+}
+
+.editor-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  height: 100vh;
+}
+
+.sidebar {
+  border-right: 1px solid rgb(var(--border-color));
+  background-color: rgb(var(--sidebar-bg));
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.sidebar-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--foreground-rgb), 0.2);
+  border-radius: 3px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.tabs-container {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 1px solid rgb(var(--border-color));
+  scrollbar-width: none;
+}
+
+.tabs-container::-webkit-scrollbar {
+  height: 0;
+  width: 0;
+}
+
+.tab {
+  padding: 8px 16px;
+  border-right: 1px solid rgb(var(--border-color));
+  cursor: pointer;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tab.active {
+  background-color: rgba(var(--primary-color), 0.1);
+}
+
+.editor-container {
+  flex: 1;
+  overflow: auto;
+  padding: 16px;
+}
+
+.folder-item {
+  cursor: pointer;
+  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  margin: 2px 0;
+}
+
+.folder-item:hover {
+  background-color: rgba(var(--primary-color), 0.1);
+}
+
+.file-item {
+  cursor: pointer;
+  padding: 6px 8px 6px 24px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  margin: 2px 0;
+}
+
+.file-item:hover {
+  background-color: rgba(var(--primary-color), 0.1);
+}
+
+.file-item.active {
+  background-color: rgba(var(--primary-color), 0.2);
+}
+
+.folder-children {
+  margin-left: 16px;
+}
+
+.text-editor {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  color: rgb(var(--foreground-rgb));
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  line-height: 1.5;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(var(--primary-color), 0.1);
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid rgb(var(--border-color));
+}
+
+/* Drag and drop styles */
+.drag-over {
+  background-color: rgba(var(--primary-color), 0.2);
+  border: 2px dashed rgb(var(--primary-color));
+}
