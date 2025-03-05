@@ -48,7 +48,3 @@ A lightweight text editor built with Next.js, similar to VS Code but limited to 
 - `/components` - React components for the UI
 - `/redux` - Redux store, slices, and actions
 - `/app` - Next.js app directory with pages and layouts
-
-## License
-
-MIT
